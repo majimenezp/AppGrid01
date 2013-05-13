@@ -1,0 +1,89 @@
+﻿@{
+    Layout = "Shared/_Layout.cshtml";
+}
+@section title{
+App control:
+}
+@section menu{
+    <ul>
+        <li><a href="/"><span>Home</span></a></li>
+        <li><a href="/Apps" class="selected"><span>Apps</span></a></li>
+    </ul>
+}
+@section libs{
+    <link rel="stylesheet" href="/css/jqueryui.css" type="text/css" media="screen" charset="utf-8" />
+    <script src="/js/jqueryui.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/appscontrol.min.js" type="text/javascript" charset="utf-8"></script>
+}
+<input type="hidden" id="appname" value="@Model.Name" />
+<div class="infoapp">
+    <div class=" col w5">
+        <div class="content">
+            <p>
+                Application name:
+            </p>
+        </div>
+    </div>
+    <div class=" col w5 last">
+        <div class="content">
+            @Model.Name
+        </div>
+    </div>
+    <div class="clear">
+    </div>
+    <div class=" col w5">
+        <div class="content">
+            <p>
+                Number of instances:</p>
+        </div>
+    </div>
+    <div class=" col w5 last">
+        <div class="content">
+            <p id="valNumInst">@Model.NumberofInstances</p>
+        </div>
+    </div>
+    <div class="clear" />
+    <div class="col w5">
+        <div class="content">
+            <p>
+                Increment/Decrement number of instances:</p>
+        </div>
+    </div>
+    <div class="col w5 last">
+        <div class="content">
+            <div id="numInstances" style="height: 8px;">
+            </div>
+        </div>
+    </div>
+    <div class="clear" />
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Process identifier
+                    </th>
+                    <th>
+                        Http Port
+                    </th>
+                    <th>
+                        Server
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="tbInstances">
+                @foreach (var item in Model.Instances)
+                {
+                    <tr>
+                        <td>@item.Pid
+                        </td>
+                        <td>@item.Port
+                        </td>
+                        <td>@item.Server
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,339 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9A377473-10D5-4EC9-9A45-3308AAEF96C6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AppGridCore</RootNamespace>
+    <AssemblyName>AppGridCore</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="clrzmq, Version=2.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\addons.net\zeromq-clrzmq2-f24717c\zeromq-clrzmq2-f24717c\clrzmq\bin\Release\clrzmq.dll</HintPath>
+    </Reference>
+    <Reference Include="HttpMachine">
+      <HintPath>..\Lib\HttpMachine.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\..\..\..\..\..\..\addons.net\sharpziplib\net-20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Kayak, Version=0.7.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Kayak.dll</HintPath>
+    </Reference>
+    <Reference Include="Nancy, Version=0.7.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Nancy.dll</HintPath>
+    </Reference>
+    <Reference Include="Nancy.Hosting.Self">
+      <HintPath>..\Lib\Nancy.Hosting.Self.dll</HintPath>
+    </Reference>
+    <Reference Include="Nancy.ViewEngines.Razor">
+      <HintPath>..\Lib\Nancy.ViewEngines.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Reactive, Version=1.0.2856.104, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Cloud Programmability\Rx-Main.1.0.10605\lib\Net4\System.Reactive.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppAdministration\App.cs" />
+    <Compile Include="AppAdministration\AppAdditionalInstance.cs" />
+    <Compile Include="AppAdministration\AppInstance.cs" />
+    <Compile Include="AppAdministration\AppInvoker.cs" />
+    <Compile Include="AppAdministration\AppStartConfig.cs" />
+    <Compile Include="AppGridStart.cs" />
+    <Compile Include="Configuration.cs" />
+    <Compile Include="AppGridHost.cs" />
+    <Compile Include="Models\AppModel.cs" />
+    <Compile Include="PackageManager.cs" />
+    <Compile Include="ProcessCommunication\InstancesRequest.cs" />
+    <Compile Include="ProcessCommunication\MessagePublisher.cs" />
+    <Compile Include="ProcessManager\ProcManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sugar\Dates.cs" />
+    <Compile Include="Sugar\IO.cs" />
+    <Compile Include="Sugar\RegexPattern.cs" />
+    <Compile Include="Sugar\Strings.cs" />
+    <Compile Include="Sugar\StringValidations.cs" />
+    <Compile Include="Website\AppsModule.cs" />
+    <Compile Include="Website\HttpHost.cs" />
+    <Compile Include="Website\MainModule.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AppGridBase\AppGridBase.csproj">
+      <Project>{F575D31F-FFA1-4E61-8912-08236BA11AC2}</Project>
+      <Name>AppGridBase</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Views\Apps.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Views\AppControl.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Views\NewApp.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Views\Index.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Views\Shared\_Layout.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Views\Test.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\css\jqueryui.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\css\reset.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\css\style.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\ajax-loader.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\box_bl.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\box_br.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\box_c.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\box_tl.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\box_tl_h.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\box_tr.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\box_tr_h.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\bullet.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\buttons_left.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\buttons_right.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\checkbox.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\document.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\dropdown_arrow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\dropdown_hr.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\footer_bg.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\footer_bl.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\footer_br.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\icons.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\icons_gray.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\input_bg.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\logo.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\menu.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\menu_arrow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\menu_tl.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\menu_tr.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\messages.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\module_search.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\overlay.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\pagination_button.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\shelf_center.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\shelf_left.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\shelf_right.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\shelf_sample_image.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\submenu.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\submenu_button_bg_left.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\submenu_button_bg_right.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\ui-bg_flat_0_aaaaaa_40x100.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\ui-bg_flat_75_ffffff_40x100.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\ui-bg_glass_55_fbf9ee_1x400.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\ui-bg_glass_65_ffffff_1x400.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\ui-bg_glass_75_dadada_1x400.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\ui-bg_glass_75_e6e6e6_1x400.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\ui-bg_glass_95_fef1ec_1x400.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\ui-bg_highlight-soft_75_cccccc_1x100.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\ui-icons_222222_256x240.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\ui-icons_2e83ff_256x240.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\ui-icons_454545_256x240.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\ui-icons_888888_256x240.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\ui-icons_cd0a0a_256x240.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Js\apps.chirp.js" />
+    <Content Include="assets\Js\apps.min.js">
+      <DependentUpon>apps.chirp.js</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Js\appscontrol.chirp.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Js\appscontrol.min.js">
+      <DependentUpon>appscontrol.chirp.js</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Js\jquery-1.6.1-vsdoc.js" />
+    <Content Include="assets\Js\jquery-1.6.1.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Js\jquery.form.chirp.js" />
+    <Content Include="assets\Js\jquery.form.min.js">
+      <DependentUpon>jquery.form.chirp.js</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Js\jqueryui.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Js\NewApp.chirp.js" />
+    <Content Include="assets\Js\NewApp.min.js">
+      <DependentUpon>NewApp.chirp.js</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Js\test.chirp.js" />
+    <Content Include="assets\Js\test.min.js">
+      <DependentUpon>test.chirp.js</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetDir)*.*" "$(SolutionDir)AppGridRunner\$(OutDir)"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

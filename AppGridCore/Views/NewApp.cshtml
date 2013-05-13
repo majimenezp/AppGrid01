@@ -1,0 +1,82 @@
+﻿@{
+    Layout = "Shared/_Layout.cshtml";
+}
+@section title{
+Upload a new app
+}
+@section menu{
+    <ul>
+        <li><a href="/"><span>Home</span></a></li>
+        <li><a href="/Apps" class="selected"><span>Apps</span></a></li>
+    </ul>
+}
+@section submenu{
+    <div class="modules_button" style="padding: 10px;">
+        <a href="/Apps/NewApp/" class="button"><small class="icon plus"></small><span>New app</span></a>
+    </div>
+}
+@section libs{
+    <script src="/js/jquery.form.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/NewApp.min.js" type="text/javascript" charset="utf-8"></script>
+}
+<div class="appInfo">
+    <form action="../CreateNewApp/" method="post" name="newapp" id="newapp">
+    <div class="col w4">
+        <div class="content">
+            <p>
+                Application name:</p>
+        </div>
+    </div>
+    <div class="col w6 last">
+        <div class="content">
+            <input type="text" id="appname" name="appname"/>
+            <div id="existpanel" class="success" style="width: 300px;">
+                <div class="tl"></div>
+                <div class="tr"></div>
+                <div class="desc">
+                    <p id="message">
+                    </p>
+                </div>
+                <div class="bl"></div>
+                <div class="br"></div>
+            </div>
+        </div>
+    </div>
+    <div class="clear" />
+    <div class="col w4">
+        <div class="content">
+            <p>
+                Default Http Port:</p>
+        </div>
+    </div>
+    <div class="col w6 last">
+        <div class="content">
+            <input type="text" id="defhttpport"  name="defhttpport" /><br />
+            <input name="portOption" type="radio" id="portopt1"  value="incremental"/>
+            <p>
+                Assign incrementally from the httport</p>
+            <br />
+            <input name="portOption" type="radio" id="portopt2" value="generallist" />
+            <p>
+                Assign the next open port in the general server list</p>
+            <br />
+        </div>
+    </div>
+    <div class="clear" />
+    <div class="col w4">
+        <div class="content">
+            <p>
+                Project file(ZIP): </p>
+        </div>
+    </div>
+    <div class="col w6 last">
+        <div class="content">
+            <input type="file" name="appfile" id="appfile" />
+        </div>
+    </div>
+    <div class="clear" />
+    <input type="submit" value="Save"  id="save" disabled="disabled"/>
+    </form>
+    <div id="Result">
+    </div>
+</div>

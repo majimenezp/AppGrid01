@@ -1,0 +1,45 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    <title>@RenderSection("title",false)</title>
+    <link rel="stylesheet" href="/css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <script src="/js/jquery-1.6.1.min.js" type="text/javascript" charset="utf-8"></script>
+    @RenderSection("libs",false)
+</head>
+<body>
+    <div id="header">
+    </div>
+    <div id="wrapper">
+        <div id="minwidth">
+            <div id="holder">
+                <div id="menu">
+                    <div id="left">
+                    </div>
+                    <div id="right">
+                    </div>                    
+                     @RenderSection("menu",false)
+                </div>
+                <div id="submenu">
+                    @RenderSection("submenu",false)
+                </div>
+                <div id="desc">
+                    <div class="body">
+                        @RenderBody()
+                    </div>
+                    <div class="clear">
+                    </div>
+                    <div id="body_footer">
+                        <div id="bottom_left">
+                            <div id="bottom_right">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        @RenderSection("footer",false)
+    </div>
+</body>
+</html>

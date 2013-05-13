@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Configuration" nillable="true" type="Configuration" />
+  <xs:complexType name="Configuration">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="HttpPort" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Variables" type="ArrayOfConfigurationVariable" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfConfigurationVariable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Variables" nillable="true" type="ConfigurationVariable" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ConfigurationVariable">
+    <xs:attribute name="Name" type="xs:string" />
+    <xs:attribute name="Value" type="xs:string" />
+  </xs:complexType>
+  <xs:element name="ConfigurationVariable" nillable="true" type="ConfigurationVariable" />
+</xs:schema>

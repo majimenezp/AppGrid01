@@ -1,0 +1,37 @@
+﻿@{
+    Layout = "Shared/_Layout.cshtml";
+}
+@section title{
+List of apps in server
+}
+@section menu{
+    <ul>
+        <li><a href="/"><span>Home</span></a></li>
+        <li><a href="/Apps" class="selected"><span>Apps</span></a></li>
+    </ul>
+}
+@section submenu{
+    <div class="modules_button" style="padding: 10px;">
+        <a href="/Apps/NewApp/" class="button"><small class="icon plus"></small><span>New app</span></a>
+    </div>
+}
+@section libs{
+    <script src="js/apps.min.js" type="text/javascript" charset="utf-8"></script>
+}
+<table id="applist">
+    <thead>
+        <tr>
+            <th>
+                AppName
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                Instances
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
